@@ -25,16 +25,23 @@ import org.openqa.selenium.Keys;
 
 import java.util.*;
 
-public class GroupCreationTestTest {
+public class testGroupCreation {
+    
     private WebDriver driver;
     private Map<String, Object> vars;
     JavascriptExecutor js;
 
     @Before
     public void setUp() {
+
         driver = new ChromeDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
+        driver.manage().window().setSize(new Dimension(1440, 810));
+        driver.get("http://localhost/addressbook/index.php");
+        driver.findElement(By.name("user")).sendKeys("admin");
+        driver.findElement(By.name("pass")).sendKeys("secret");
+        driver.findElement(By.cssSelector("input:nth-child(7)")).click();
     }
 
     @After
@@ -44,11 +51,7 @@ public class GroupCreationTestTest {
 
     @Test
     public void groupCreationTest() {
-        driver.get("http://localhost/addressbook/index.php");
-        driver.manage().window().setSize(new Dimension(1440, 810));
-        driver.findElement(By.name("user")).sendKeys("admin");
-        driver.findElement(By.name("pass")).sendKeys("secret");
-        driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+
         driver.findElement(By.linkText("groups")).click();
         driver.findElement(By.name("new")).click();
         driver.findElement(By.name("group_name")).click();
