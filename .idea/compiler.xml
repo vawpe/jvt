@@ -5,6 +5,8 @@
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="addressbook-web-test.main" target="1.8" />
+      <module name="addressbook-web-test.test" target="1.8" />
       <module name="JfT.Sandbox.main" target="1.8" />
       <module name="JfT.Sandbox.test" target="1.8" />
       <module name="Sandbox.main" target="1.8" />

@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JfT.Sandbox.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JfT.Sandbox.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JfT.Sandbox.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JfT.Sandbox.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/Sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Sandbox.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Sandbox.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Sandbox.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Sandbox.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-test.main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-test.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-test.test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-test.test.iml" />
     </modules>
   </component>
 </project>
