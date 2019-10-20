@@ -17,7 +17,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.*;
 
-public class testGroupCreation {
+public class GroupCreationTests {
 
     private WebDriver driver;
     private Map<String, Object> vars;
@@ -29,7 +29,6 @@ public class testGroupCreation {
         driver = new ChromeDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
-        driver.manage().window().setSize(new Dimension(1440, 810));
         login("admin", "secret");
     }
 
