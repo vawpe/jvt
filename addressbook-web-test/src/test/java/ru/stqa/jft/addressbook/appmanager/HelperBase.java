@@ -18,4 +18,8 @@ public class HelperBase {
     public void click(By locator) {
         driver.findElement(locator).click();
     }
+
+    public void alertAccept() {
+        driver.switchTo().alert().accept();
+    }
 }

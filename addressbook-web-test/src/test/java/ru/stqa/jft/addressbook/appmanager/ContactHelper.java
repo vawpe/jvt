@@ -25,4 +25,12 @@ public class ContactHelper extends HelperBase {
     public void initContactCreation() {
         click(By.linkText("add new"));
     }
+
+    public void selectContact() {
+        click(By.xpath("(//input[@type='checkbox'])[1]"));
+    }
+
+    public void deleteContact() {
+        click(By.xpath("//input[@type='button' and @value='Delete']"));
+    }
 }
