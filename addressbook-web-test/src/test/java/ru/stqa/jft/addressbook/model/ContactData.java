@@ -23,7 +23,7 @@ public class ContactData {
         return middleName;
     }
 
-    public String getLastFamily() {
+    public String getLastName() {
         return lastFamily;
     }
 

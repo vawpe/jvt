@@ -4,32 +4,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.jft.addressbook.model.ContactData;
 
-public class ContactHelper {
-
-    private WebDriver driver;
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void submitContactCreation() {
-        driver.findElement(By.cssSelector("input:nth-child(87)")).click();
+        click(By.cssSelector("input:nth-child(87)"));
     }
 
     public void fillContactForm(ContactData contactData) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-        driver.findElement(By.name("middlename")).click();
-        driver.findElement(By.name("middlename")).sendKeys(contactData.getMiddleName());
-        driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastFamily());
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).sendKeys(contactData.getMobileNumber());
-        driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).sendKeys(contactData.getFirstEmail());
+        type(By.name("firstname"), contactData.getFirstName());
+        type(By.name("middlename"), contactData.getMiddleName());
+        type(By.name("lastname"), contactData.getLastName());
+        type(By.name("mobile"), contactData.getMobileNumber());
+        type(By.name("email"), contactData.getFirstEmail());
     }
 
     public void initContactCreation() {
-        driver.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 }
