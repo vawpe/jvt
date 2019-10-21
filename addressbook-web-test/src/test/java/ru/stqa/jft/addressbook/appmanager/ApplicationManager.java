@@ -26,7 +26,6 @@ public class ApplicationManager {
         contactHelper = new ContactHelper(driver);
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
-        driver.get("http://localhost/addressbook/index.php");
         sessionHelper.login("admin", "secret");
     }
 
