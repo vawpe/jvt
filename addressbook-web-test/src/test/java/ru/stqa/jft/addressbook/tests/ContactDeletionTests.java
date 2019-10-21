@@ -5,7 +5,7 @@ import org.junit.Test;
 public class ContactDeletionTests extends TestBase {
 
     @Test
-    public void contactDeletionTests() {
+    public void contactDeletionTest() {
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteContact();
         app.getContactHelper().alertAccept();
