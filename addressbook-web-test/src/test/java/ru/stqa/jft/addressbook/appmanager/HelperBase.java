@@ -1,6 +1,7 @@
 package ru.stqa.jft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class HelperBase {
@@ -26,5 +27,14 @@ public class HelperBase {
 
     public void alertAccept() {
         driver.switchTo().alert().accept();
+    }
+
+    protected boolean isElementIsPresent(By locator) {
+        try {
+            driver.findElement(locator);
+            return true;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
     }
 }
