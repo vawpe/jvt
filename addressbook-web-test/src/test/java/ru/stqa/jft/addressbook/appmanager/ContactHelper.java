@@ -38,7 +38,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(//img[@src='icons/pencil.png'])[1]"));
     }
 
-    public void updateContactModification() {
+    public void submitContactModification() {
         click(By.xpath("//input[@value='Update'][2]"));
     }
 }

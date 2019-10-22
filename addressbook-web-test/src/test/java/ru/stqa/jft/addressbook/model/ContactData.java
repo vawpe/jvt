@@ -7,10 +7,10 @@ public class ContactData {
     private final String mobileNumber;
     private final String firstEmail;
 
-    public ContactData(String firstName, String middleName, String lastFamily, String mobileNumber, String firstEmail) {
+    public ContactData(String firstName, String middleName, String lastName, String mobileNumber, String firstEmail) {
         this.firstName = firstName;
         this.middleName = middleName;
-        this.lastFamily = lastFamily;
+        this.lastFamily = lastName;
         this.mobileNumber = mobileNumber;
         this.firstEmail = firstEmail;
     }
