@@ -47,7 +47,22 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(//img[@src='icons/pencil.png'])[1]"));
     }
 
+    public void returnToHomePage() {
+        click(By.linkText("home"));
+    }
+
     public void submitContactModification() {
         click(By.xpath("//input[@value='Update'][2]"));
+    }
+
+    public void createContact(ContactData contact, boolean creation) {
+        initContactCreation();
+        fillContactForm(contact, creation);
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    public boolean isThereContact() {
+        return isElementIsPresent(By.xpath("//span[@id='search_count' and text()!='0']"));
     }
 }
