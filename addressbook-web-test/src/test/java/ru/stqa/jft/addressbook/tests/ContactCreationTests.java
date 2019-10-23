@@ -4,17 +4,19 @@ import org.junit.Assert;
 import org.junit.Test;
 import ru.stqa.jft.addressbook.model.ContactData;
 
+import java.util.List;
+
 public class ContactCreationTests extends TestBase {
 
     @Test
     public void contactCreationTest() {
-        int before = app.getContactHelper().getContactsCount();
+        List<ContactData> before = app.getContactHelper().getContactsList();
         app.getContactHelper().initContactCreation();
         app.getContactHelper().fillContactForm(new ContactData("Ed", "Testovich", "Edovv",
-                "+79811234567", "test@test.ru", "test1"), true);
+                "+79811234567", "test@test.ru", "modGroup1"), true);
         app.getContactHelper().submitContactCreation();
         app.getNavigationHelper().goToHomePage();
-        int after = app.getContactHelper().getContactsCount();
-        Assert.assertEquals(after, before + 1);
+        List<ContactData> after = app.getContactHelper().getContactsList();
+        Assert.assertEquals(after.size(), before.size() + 1);
     }
 }
