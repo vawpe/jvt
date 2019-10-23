@@ -65,4 +65,8 @@ public class ContactHelper extends HelperBase {
     public boolean isThereContact() {
         return isElementIsPresent(By.xpath("//span[@id='search_count' and text()!='0']"));
     }
+
+    public int getContactsCount() {
+        return driver.findElements(By.xpath("//img[@src='icons/pencil.png']")).size();
+    }
 }
