@@ -35,8 +35,8 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void selectContact() {
-        click(By.xpath("(//input[@type='checkbox'])[1]"));
+    public void selectContact(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void deleteContact() {
@@ -67,6 +67,6 @@ public class ContactHelper extends HelperBase {
     }
 
     public int getContactsCount() {
-        return driver.findElements(By.xpath("//img[@src='icons/pencil.png']")).size();
+        return driver.findElements(By.name("selected[]")).size();
     }
 }
