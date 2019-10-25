@@ -3,7 +3,7 @@ package ru.stqa.jft.addressbook.model;
 public class ContactData {
     private final String firstName;
     private final String middleName;
-    private final String lastFamily;
+    private final String lastName;
     private final String mobileNumber;
     private final String firstEmail;
     private String group;
@@ -11,7 +11,7 @@ public class ContactData {
     public ContactData(String firstName, String middleName, String lastName, String mobileNumber, String firstEmail, String group) {
         this.firstName = firstName;
         this.middleName = middleName;
-        this.lastFamily = lastName;
+        this.lastName = lastName;
         this.mobileNumber = mobileNumber;
         this.firstEmail = firstEmail;
         this.group = group;
@@ -26,7 +26,7 @@ public class ContactData {
     }
 
     public String getLastName() {
-        return lastFamily;
+        return lastName;
     }
 
     public String getMobileNumber() {
@@ -39,5 +39,27 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ContactData that = (ContactData) o;
+
+        return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return lastName != null ? lastName.hashCode() : 0;
     }
 }
