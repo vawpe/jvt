@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import ru.stqa.jft.addressbook.model.GroupData;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class GroupModificationTests extends TestBase {
@@ -17,11 +18,14 @@ public class GroupModificationTests extends TestBase {
         List<GroupData> before = app.getGroupHelper().getGroupsList();
         app.getGroupHelper().selectGroup(before.size() - 1);
         app.getGroupHelper().initGroupModification();
-        app.getGroupHelper().fillGroupForm(new GroupData(null, "modGroup2", "modGroup3"));
+        GroupData group = new GroupData(before.get(before.size() - 1).getGroupId(),"modGroup1", "modGroup2", "modGroup3");
+        app.getGroupHelper().fillGroupForm(group);
         app.getGroupHelper().updateGroupModification();
         app.getGroupHelper().returnToGroupPage();
         List<GroupData> after = app.getGroupHelper().getGroupsList();
         Assert.assertEquals(after.size(), before.size());
-        Assert.assertEquals(before, after);
+        before.remove(before.size() - 1);
+        before.add(group);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 }
