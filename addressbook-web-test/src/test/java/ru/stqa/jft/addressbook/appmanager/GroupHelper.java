@@ -68,7 +68,7 @@ public class GroupHelper extends HelperBase {
         List<WebElement> elements = driver.findElements(By.xpath("//span[@class='group']"));
         for (WebElement element : elements) {
             String groupName = element.getText();
-            String groupId = element.findElement(By.tagName("input")).getAttribute("value");
+            int groupId = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             GroupData group = new GroupData(groupId, groupName, null, null);
             groups.add(group);
         }

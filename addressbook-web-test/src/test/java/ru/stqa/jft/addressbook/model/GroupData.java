@@ -1,19 +1,19 @@
 package ru.stqa.jft.addressbook.model;
 
 public class GroupData {
-    private final String groupId;
+    private int groupId;
     private final String groupName;
     private final String groupHeader;
     private final String groupFooter;
 
     public GroupData(String groupName, String groupHeader, String groupFooter) {
-        this.groupId = null;
+        this.groupId = 0;
         this.groupName = groupName;
         this.groupHeader = groupHeader;
         this.groupFooter = groupFooter;
     }
 
-    public GroupData(String groupId, String groupName, String groupHeader, String groupFooter) {
+    public GroupData(int groupId, String groupName, String groupHeader, String groupFooter) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.groupHeader = groupHeader;
@@ -32,8 +32,20 @@ public class GroupData {
         return groupFooter;
     }
 
-    public String getGroupId() {
+    public int getGroupId() {
         return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupData{" +
+                "groupId=" + groupId +
+                ", groupName='" + groupName + '\'' +
+                '}';
     }
 
     @Override
@@ -43,23 +55,14 @@ public class GroupData {
 
         GroupData groupData = (GroupData) o;
 
-        if (groupId != null ? !groupId.equals(groupData.groupId) : groupData.groupId != null) return false;
+        if (groupId != groupData.groupId) return false;
         return groupName != null ? groupName.equals(groupData.groupName) : groupData.groupName == null;
     }
 
     @Override
     public int hashCode() {
-        int result = groupId != null ? groupId.hashCode() : 0;
+        int result = groupId;
         result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "GroupData{" +
-                "groupId='" + groupId + '\'' +
-                ", groupName='" + groupName + '\'' +
-                '}';
-    }
-
 }

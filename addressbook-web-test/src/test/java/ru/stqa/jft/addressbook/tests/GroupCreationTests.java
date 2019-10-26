@@ -5,6 +5,7 @@ import org.junit.Test;
 import ru.stqa.jft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTests extends TestBase {
@@ -13,13 +14,19 @@ public class GroupCreationTests extends TestBase {
     public void groupCreationTest() {
         app.getNavigationHelper().goToGroupPage();
         List<GroupData> before = app.getGroupHelper().getGroupsList();
-        app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData("test1", null, null));
-        app.getGroupHelper().submitGroupCreation();
-        app.getGroupHelper().returnToGroupPage();
+        GroupData group = new GroupData("test1", null, null);
+        app.getGroupHelper().createGroup(group);
         List<GroupData> after = app.getGroupHelper().getGroupsList();
         Assert.assertEquals(after.size(), before.size() + 1);
-        after.remove(after.size() - 1);
-        Assert.assertEquals(before, after);
+
+        int max= 0;
+        for (GroupData g : after) {
+            if (g.getGroupId() > max) {
+                max = g.getGroupId();
+            }
+        }
+        group.setGroupId(max);
+        before.add(group);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 }
