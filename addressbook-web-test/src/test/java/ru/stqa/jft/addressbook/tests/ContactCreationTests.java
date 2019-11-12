@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import ru.stqa.jft.addressbook.model.ContactData;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTests extends TestBase {
@@ -11,10 +12,21 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void contactCreationTest() {
         List<ContactData> before = app.getContactHelper().getContactsList();
-        app.getContactHelper().createContact(new ContactData("Ed", "Testovich", "Edovv",
-                "+79811234567", "test@test.ru", "test1"), true);
+        ContactData contact = new ContactData("Ed2", "Testovich", "Edovv",
+                "+79811234567", "test@test.ru", "test1");
+        app.getContactHelper().createContact(contact, true);
         app.getNavigationHelper().goToHomePage();
         List<ContactData> after = app.getContactHelper().getContactsList();
         Assert.assertEquals(after.size(), before.size() + 1);
+
+        int max = 0;
+        for (ContactData c : after) {
+            if (c.getId() > max) {
+                max = c.getId();
+            }
+        }
+        contact.setId(max);
+        before.add(contact);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 }
